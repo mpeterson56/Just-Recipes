@@ -1,1 +1,1 @@
-# Just-Recipes
+# Tech-Blog
