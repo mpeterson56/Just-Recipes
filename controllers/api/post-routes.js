@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const sequelize = require('../../config/connection');
 const { Post, User,Comment, Vote  } = require('../../models');
-const Auth0Strategy = require('../../utils/auth');
+const authenticate = require('../../utils/auth');
 // get all users
 router.get('/', (req, res) => {
     console.log('======================');
@@ -76,7 +76,7 @@ router.get('/', (req, res) => {
   });
 
 
-  router.post('/', Auth0Strategy, (req, res) => {
+  router.post('/', authenticate, (req, res) => {
     // expects {title: 'Taskmaster goes public!', post_url: 'https://taskmaster.com/press', user_id: 1}
     Post.create({
       title: req.body.title,
@@ -90,7 +90,7 @@ router.get('/', (req, res) => {
       });
   });
 
-  router.put('/upvote', Auth0Strategy, (req, res) => {
+  router.put('/upvote', authenticate, (req, res) => {
     // custom static method created in models/Post.js
     Post.upvote({ ...req.body, user_id: req.session.user_id }, { Vote, Comment, User })
       .then(updatedVoteData => res.json(updatedVoteData))
@@ -100,7 +100,7 @@ router.get('/', (req, res) => {
       });
   });
 
-  router.put('/:id', Auth0Strategy, (req, res) => {
+  router.put('/:id', authenticate, (req, res) => {
     Post.update(
       {
         title: req.body.title
@@ -125,7 +125,7 @@ router.get('/', (req, res) => {
   });
 
 
-  router.delete('/:id', Auth0Strategy, (req, res) => {
+  router.delete('/:id', authenticate, (req, res) => {
     console.log('id', req.params.id);
     Post.destroy({
       where: {
