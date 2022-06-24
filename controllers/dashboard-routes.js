@@ -1,10 +1,10 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { Post, User, Comment, Vote } = require('../models');
-const Auth0Strategy = require('../utils/auth');
+const passport = require('../utils/auth');
 
 // get all posts for dashboard
-router.get('/', Auth0Strategy, (req, res) => {
+router.get('/', passport.authenticate('local'), (req, res) => {
   console.log(req.session);
   console.log('======================');
   Post.findAll({
@@ -43,7 +43,7 @@ router.get('/', Auth0Strategy, (req, res) => {
     });
 });
 
-router.get('/edit/:id', Auth0Strategy, (req, res) => {
+router.get('/edit/:id', passport.authenticate('local'), (req, res) => {
   Post.findByPk(req.params.id, {
     attributes: [
       'id',
