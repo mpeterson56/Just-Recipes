@@ -16,7 +16,8 @@
   },
   "scripts": {
     "start": "node server.js",
-    "test": "jest"
+    "test": "jest",
+    "seed": "node seeds/index.js"
   },
   "name": "project2",
   "description": "project 2",

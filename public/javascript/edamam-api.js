@@ -11,8 +11,9 @@ searchBtn.addEventListener('click', (e) => {
 });
 
 function getApiData() {
-    var spoonApiUrl = "https://api.spoonacular.com/recipes/complexSearch?apiKey=" + process.env.API_KEY + "&query=" + searchText.value +
-        "&number=5&instructionsRequired=true&addRecipeInformation=true&fillIngredients=true"
+    var spoonApiUrl = "https://api.spoonacular.com/recipes/complexSearch?apiKey=" + process.env.API_KEY + 
+    "&query=" + searchText.value +
+    "&number=6&instructionsRequired=true&addRecipeInformation=true&fillIngredients=true"
 
     fetch(spoonApiUrl)
         .then((data) => data.json())
