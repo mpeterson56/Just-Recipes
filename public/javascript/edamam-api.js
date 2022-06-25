@@ -12,7 +12,7 @@ searchBtn.addEventListener('click', (e) => {
 
 function getApiData() {
     var spoonApiUrl = "https://api.spoonacular.com/recipes/complexSearch?apiKey=" + process.env.API_KEY + "&query=" + searchText.value +
-        "&number=6&instructionsRequired=true&addRecipeInformation=true&fillIngredients=true"
+        "&number=5&instructionsRequired=true&addRecipeInformation=true&fillIngredients=true"
 
     fetch(spoonApiUrl)
         .then((data) => data.json())
@@ -26,7 +26,7 @@ function getApiData() {
                 }
 
                 // pulling each steps[p] at each result[i] and grabbing the step which shows the steps to cook the recipe in order
-                for (let p = 0; p <json.results.analyzedInstructions.steps.length; p++) {
+                for (let p = 0; p < json.results.analyzedInstructions.steps.length; p++) {
                     recipeSteps.push(json.results[i].analyzedInstructions.steps[p].step);
                     var cookingSteps = document.getElementById('cooking-steps-' + [i]);
                     cookingSteps.textContent = recipeSteps[p];
@@ -40,7 +40,6 @@ function getApiData() {
                 var recipeImage = json.results[i].image;
                 var image = document.getElementById('image-' + [i]);
                 image.setAttribute("src", recipeImage);
-
             }
         })
-}
+};
