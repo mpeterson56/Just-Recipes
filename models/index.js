@@ -11,7 +11,7 @@ User.hasMany(Post, {
 
 Post.belongsTo(User, {
   foreignKey: 'user_id',
-  onDelete: 'SET NULL'
+  onDelete: 'CASCADE'
 });
 
 User.belongsToMany(Post, {
@@ -19,24 +19,24 @@ User.belongsToMany(Post, {
   as: 'voted_posts',
 
   foreignKey: 'user_id',
-  onDelete: 'SET NULL'
+  onDelete: 'CASCADE'
 });
 
 Post.belongsToMany(User, {
   through: Vote,
   as: 'voted_posts',
   foreignKey: 'post_id',
-  onDelete: 'SET NULL'
+  onDelete: 'CASCADE'
 });
 
 Vote.belongsTo(User, {
   foreignKey: 'user_id',
-  onDelete: 'SET NULL'
+  onDelete: 'CASCADE'
 });
 
 Vote.belongsTo(Post, {
   foreignKey: 'post_id',
-  onDelete: 'SET NULL'
+  onDelete: 'CASCADE'
 });
 
 User.hasMany(Vote, {
@@ -49,17 +49,16 @@ Post.hasMany(Vote, {
 
 Comment.belongsTo(User, {
   foreignKey: 'user_id',
-  onDelete: 'SET NULL'
+  onDelete: 'CASCADE'
 });
 
 Comment.belongsTo(Post, {
   foreignKey: 'post_id',
-  onDelete: 'SET NULL'
+  onDelete: 'CASCADE'
 });
 
 User.hasMany(Comment, {
   foreignKey: 'user_id',
-  onDelete: 'SET NULL'
 });
 
 Post.hasMany(Comment, {
