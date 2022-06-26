@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,8 +11,32 @@
 </head>
 
 <body>
+    <header>
+        <h1>
+            <a href="/">Just Recipes</a>
+        </h1>
+
+        <nav>
+            {{#if loggenIn}}
+            <a href="/dashboard">dashboard</a>
+            <button id="logout" class="btn-no-style">logout</button>
+            {{else}}
+            <a href="/login">login</a>
+            {{/if}}
+            <button id="search">Search</button>
+            
+
+        </nav>
+    </header>
+
     <main>
-    {{{body}}}
+        {{{body}}}
     </main>
+
+    {{#if loggenIn}}
+    <script src=""></script>
+    {{/if}}
+
 </body>
+
 </html>
