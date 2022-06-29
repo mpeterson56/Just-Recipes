@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Just Recipes</title>
-    <link rel="stylesheet" href="/public/stylesheet/style.css">
+    <link rel="stylesheet" href="/stylesheet/style.css">
 </head>
 
 <body>
@@ -17,13 +17,14 @@
         </h1>
 
         <nav>
-            {{#if loggenIn}}
+            {{!-- {{#if loggedIn}} --}}
             <a href="/dashboard">dashboard</a>
             <button id="logout" class="btn-no-style">logout</button>
-            {{else}}
+            {{!-- {{else}} --}}
             <a href="/login">login</a>
-            {{/if}}
-            <button id="search">Search</button>
+            {{!-- {{/if}} --}}
+            <button id="search-btn">Search</button>
+            <input type="text" id="search-input" />
             
 
         </nav>
@@ -33,9 +34,9 @@
         {{{body}}}
     </main>
 
-    {{#if loggenIn}}
-    <script src=""></script>
-    {{/if}}
+    {{!-- {{#if loggedIn}} --}}
+    <script src="/javascript/edamam-api.js"></script>
+    {{!-- {{/if}} --}}
 
 </body>
 
