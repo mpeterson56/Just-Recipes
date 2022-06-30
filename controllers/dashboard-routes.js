@@ -4,7 +4,7 @@ const { Post, User, Comment, Vote } = require('../models');
 const passport = require('../utils/auth');
 
 // get all posts for dashboard
-router.get('/', passport.authenticate('local'), (req, res) => {
+router.get('/',  (req, res) => {
   console.log(req.session);
   console.log('======================');
   Post.findAll({
@@ -13,7 +13,7 @@ router.get('/', passport.authenticate('local'), (req, res) => {
     },
     attributes: [
       'id',
-      'post_url',
+      'post_text',
       'title',
       'created_at',
       [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
@@ -47,7 +47,7 @@ router.get('/edit/:id', passport.authenticate('local'), (req, res) => {
   Post.findByPk(req.params.id, {
     attributes: [
       'id',
-      'post_url',
+      'post_text',
       'title',
       'created_at',
       [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
@@ -82,6 +82,10 @@ router.get('/edit/:id', passport.authenticate('local'), (req, res) => {
     .catch(err => {
       res.status(500).json(err);
     });
+});
+
+router.get('/newpost', (req, res) => {
+  res.render('new-posts');
 });
 
 module.exports = router;

@@ -21,8 +21,8 @@ function getApiData() {
 
     fetch(`/api/spoon/${searchText.value}`)
         .then((data) => data.json())
+        console.log('info aquired')
         .then((json) => {
-            console.log('info aquired')
             for (let i = 0; i < json.results.length; i++) {
                 // pulling each extendedIngredient[j] at each result[i] and grabbing the original which shows the measure and ingredient type
                 for (let j = 0; j < json.results.extendedIngredients.length; j++) {
