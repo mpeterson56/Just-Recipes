@@ -59,6 +59,20 @@ Post.init(
         model: 'user',
         key: 'id'
       }
+    },
+    ingredients_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'ingredients',
+        key: 'id'
+      }
+    },
+    steps_id: {
+      type:DataTypes.INTEGER,
+      references: {
+        model: 'steps',
+        key: 'id'
+      }
     }
   },
   {

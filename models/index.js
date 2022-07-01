@@ -3,6 +3,8 @@ const Post = require('./Post');
 const User = require('./User');
 const Vote = require('./Vote');
 const Comment = require('./Comment');
+const Ingredients = require('./Ingredients');
+const Steps = require('./Steps');
 
 // create associations
 User.hasMany(Post, {
@@ -65,4 +67,21 @@ Post.hasMany(Comment, {
   foreignKey: 'post_id'
 });
 
-module.exports = { User, Post, Vote, Comment };
+Post.hasMany(Ingredients, {
+  foreignKey: 'post_id'
+});
+
+Ingredients.belongsTo(Post, {
+  foreignKey: 'post_id'
+})
+
+Post.hasMany(Steps, {
+  foreignKey: 'post_id'
+});
+
+Steps.belongsTo(Post, {
+  foreignKey: 'post_id'
+})
+
+
+module.exports = { User, Post, Vote, Comment, Ingredients, Steps };
