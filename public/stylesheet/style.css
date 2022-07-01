@@ -7,6 +7,29 @@ body {
   padding: 0;
 }
 
+/* added by Diego */
+
+* {
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#dashboard {
+    margin-right: 20px;
+}
+
+#logout {
+    margin-right: 20px;
+}
+
+main {
+    background-image: ;
+}
+
+/* End of Diego additions */
+
+
+
 .save-note {
   display: none;
 }
