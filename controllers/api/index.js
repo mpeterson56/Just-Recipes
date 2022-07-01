@@ -12,8 +12,8 @@ const StepsRoutes = require('./steps-routes')
 router.use('/users', userRoutes);
 router.use('/posts', postRoutes);
 router.use('/comments', commentRoutes);
-router.use('/Ingredients', IngredientsRoutes);
-router.use('./Steps', StepsRoutes )
+router.use('/ingredients', IngredientsRoutes);
+router.use('./steps', StepsRoutes )
 
 
 // router.get('/spoon/:search', (req, res) => {

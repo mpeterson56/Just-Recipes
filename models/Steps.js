@@ -14,7 +14,15 @@ Steps.init(
         step: {
             type: DataTypes.STRING,
             allowNull: false
-        }
+        },
+     
+          post_id: {
+            type: DataTypes.INTEGER,
+            references: {
+              model: 'post',
+              key: 'id'
+            }
+          }
     },
     {
         sequelize,
@@ -24,4 +32,4 @@ Steps.init(
     }
 );
 
-module.exports = Steps 
+module.exports = Steps; 
