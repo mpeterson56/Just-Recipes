@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const sequelize = require('../../config/connection');
 const { Post, User,Comment, Vote  } = require('../../models');
-const passport = require('../../utils/auth');
+const passport = require('../utils/auth');
 // get all users
 router.get('/', (req, res) => {
     console.log('======================');
@@ -77,7 +77,7 @@ router.get('/', (req, res) => {
 
 
   router.post('/', passport.authenticate('local'), (req, res) => {
-    // expects {title: 'Taskmaster goes public!', post_text: 'https://taskmaster.com/press', user_id: 1}
+  
     Post.create({
       title: req.body.title,
       post_text: req.body.post_text,
@@ -91,7 +91,7 @@ router.get('/', (req, res) => {
   });
 
   router.put('/upvote', passport.authenticate('local'), (req, res) => {
-    // custom static method created in models/Post.js
+  
     Post.upvote({ ...req.body, user_id: req.session.user_id }, { Vote, Comment, User })
       .then(updatedVoteData => res.json(updatedVoteData))
       .catch(err => {

@@ -1,3 +1,5 @@
+{{> post-info post}}
+
 <div>
     <h2>{{post.title}}</h2>
     <p>{{post.post_text}}</p>
@@ -13,4 +15,9 @@
     <button type="submit">Add Comment</button>
   </div>
 </form>
+{{/if}}
+{{> comments post.comments}}
+{{#if loggedIn}}
+<script src="/javascript/comment.js"></script>
+<script src="/javascript/upvote.js"></script>
 {{/if}}

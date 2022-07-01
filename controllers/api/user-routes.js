@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { User, Post, Comment, Vote } = require('../../models');
-
+//const passport = require('../utils/auth');
 // get all users
 router.get('/', (req, res) => {
   User.findAll({
@@ -85,7 +85,7 @@ router.post('/login', (req, res) => {
       return;
     }
 
-    const validPassword = dbUserData.checkPassword(req.body.password);
+    const validPassword = dbUserData.verifyPassword(req.body.password);
 
     if (!validPassword) {
       res.status(400).json({ message: 'Incorrect password!' });
