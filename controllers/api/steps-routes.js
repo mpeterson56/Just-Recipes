@@ -19,8 +19,8 @@ router.get('/', (req, res) => {
 
   router.post('/', (req, res) => {
    Steps.create({
-     Steps: req.body.Steps,
-     ingredients_id: req.body.ingredients_id,
+     Steps_id: req.body.Steps_id,
+     step: req.body.step,
       post_id: req.body.post_id
     })
       .then(dbStepsData => res.json(dbStepsData))
