@@ -28,7 +28,7 @@ router.get('/', (req, res) => {
         }
       ]
     })
-      .then(dbPostData => res.json(dbPostData))
+      .then(PostData => res.json(PostData))
       .catch(err => {
         console.log(err);
         res.status(500).json(err);
@@ -62,12 +62,12 @@ router.get('/', (req, res) => {
         }
       ]
     })
-      .then(dbPostData => {
-        if (!dbPostData) {
+      .then(PostData => {
+        if (!PostData) {
           res.status(404).json({ message: 'No post found with this id' });
           return;
         }
-        res.json(dbPostData);
+        res.json(PostData);
       })
       .catch(err => {
         console.log(err);
@@ -77,13 +77,13 @@ router.get('/', (req, res) => {
 
 
   router.post('/', passport.authenticate('local'), (req, res) => {
-    // expects {title: 'Taskmaster goes public!', post_text: 'https://taskmaster.com/press', user_id: 1}
+  
     Post.create({
       title: req.body.title,
       post_text: req.body.post_text,
       user_id: req.session.user_id
     })
-      .then(dbPostData => res.json(dbPostData))
+      .then(PostData => res.json(PostData))
       .catch(err => {
         console.log(err);
         res.status(500).json(err);
@@ -91,7 +91,7 @@ router.get('/', (req, res) => {
   });
 
   router.put('/upvote', passport.authenticate('local'), (req, res) => {
-    // custom static method created in models/Post.js
+  
     Post.upvote({ ...req.body, user_id: req.session.user_id }, { Vote, Comment, User })
       .then(updatedVoteData => res.json(updatedVoteData))
       .catch(err => {
@@ -111,12 +111,12 @@ router.get('/', (req, res) => {
         }
       }
     )
-      .then(dbPostData => {
-        if (!dbPostData) {
+      .then(PostData => {
+        if (!PostData) {
           res.status(404).json({ message: 'No post found with this id' });
           return;
         }
-        res.json(dbPostData);
+        res.json(PostData);
       })
       .catch(err => {
         console.log(err);
@@ -132,12 +132,12 @@ router.get('/', (req, res) => {
         id: req.params.id
       }
     })
-      .then(dbPostData => {
-        if (!dbPostData) {
+      .then(PostData => {
+        if (!PostData) {
           res.status(404).json({ message: 'No post found with this id' });
           return;
         }
-        res.json(dbPostData);
+        res.json(PostData);
       })
       .catch(err => {
         console.log(err);

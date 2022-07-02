@@ -4,7 +4,7 @@ const { Post, User, Comment, Vote } = require('../models');
 const passport = require('../utils/auth');
 
 // get all posts for dashboard
-router.get('/',  (req, res) => {
+router.get('/', (req, res) => {
   console.log(req.session);
   console.log('======================');
   Post.findAll({

@@ -4,6 +4,8 @@ const seedComments = require('./comment-seeds');
 const seedVotes = require('./vote-seeds');
 
 const sequelize = require('../config/connection');
+const seedIngredients = require('./ingredient-seeds');
+const seedSteps = require('./steps-seeds');
 
 const seedAll = async () => {
   await sequelize.sync({ force: true });
@@ -13,6 +15,12 @@ const seedAll = async () => {
 
   await seedPosts();
   console.log('--------------');
+
+  await seedIngredients();
+  console.log('--------------');
+
+  await seedSteps();
+  console.log('--------------')
 
   await seedComments();
   console.log('--------------');
