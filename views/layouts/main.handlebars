@@ -18,11 +18,11 @@
 
         <nav>
             {{#if loggedIn}}
-            <a href="/dashboard" id="dashboard">dashboard</a>
+            <a href="/dashboard">dashboard</a>
             <button id="logout" class="btn-no-style">logout</button>
-            {{else}}
+            {{else }}
             <a href="/login">login</a>
-            {{/if}}
+            {{/if }}
             <button id="search-btn">Search</button>
             <input type="text" id="search-input" />
 
@@ -34,15 +34,13 @@
         {{{body}}}
     </main>
 
+  {{#if loggedIn}}
+  <script src="/javascript/logout.js"></script>
 
-    {{#if loggedIn}}
-    <script src="/javascript/logout.js"></script>
-    {{/if}}
-
-    {{#if loggedIn}}
-    <script src="/javascript/edamam-api.js"></script>
-    {{/if}}
+  
+  {{/if}}
 
 </body>
 
 </html>
+ <script src="/javascript/edamam-api.js"></script>
