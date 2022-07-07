@@ -1,0 +1,124 @@
+/* main style across all pages */
+body {
+    background-color: #3E436F;
+}
+
+#main-title {
+    color: goldenrod;
+    text-align: center;
+    border-radius: 18px;
+    border: 3px solid goldenrod;
+    font-size: smaller;
+}
+
+#dashboard-link {
+    color: goldenrod;
+    font-size: smaller;
+}
+
+#logout {
+    color: goldenrod;
+    background-color: #3E436F;
+    border: none;
+}
+
+#login-btn {
+    color: goldenrod;
+    background-color: #3E436F;
+    border: none;
+}
+
+#search-btn {
+    color: goldenrod;
+    background-color: #3E436F;
+    border: none;
+}
+
+/* dashboard styles  */
+
+#post-title {
+    color: goldenrod;
+    font-weight: 600;
+}
+
+#post-info{
+    color:goldenrod;
+    opacity: 0.75;
+}
+
+#upvotes{
+    color: goldenrod;
+    opacity: 0.75;
+}
+
+#comment-count {
+    color: goldenrod;
+    opacity: 1;
+}
+
+#new-recipe {
+    color: goldenrod;
+}
+
+#recipe-title {
+    color: goldenrod;
+}
+
+#steps {
+    color: goldenrod;
+}
+
+#ingredient {
+    color: goldenrod;
+}
+
+#measurement {
+    color: goldenrod;
+}
+
+#step-description {
+    color: goldenrod;
+}
+
+#create-btn {
+    color: goldenrod;
+    background-color: #3E436F;
+    border: none;
+    padding-bottom: 10px;
+}
+
+/* comment styles */
+
+#user-comment {
+    color: goldenrod;
+    opacity: .75;
+}
+
+#comment-text {
+    color: goldenrod;
+    opacity: .75;
+}
+
+/* login styles */
+
+#email {
+    color: goldenrod;
+    display:block;
+}
+
+#password {
+    color: goldenrod;
+    display: block;
+}
+
+#username {
+    color: goldenrod;
+    display: block;
+}
+
+#signup-btn {
+    display: block;
+    color: goldenrod;
+    background-color: #3E436F;
+    border: none;
+}
