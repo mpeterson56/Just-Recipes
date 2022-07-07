@@ -99,9 +99,9 @@ attributes: ['ingredient', 'measurement']
     Post.create({
       title: req.body.title,
       post_text: req.body.post_text,
-      ingredient: req.body.ingredient,
-      measurement: req.body.measurement,
-      step: req.body.step,
+      ingredients_id: req.body.ingredients_id,
+    
+      steps_id: req.body.steps_id,
       user_id: req.session.user_id
     })
       .then(PostData => res.json(PostData))

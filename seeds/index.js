@@ -20,7 +20,7 @@ const seedAll = async () => {
   console.log('--------------');
 
   await seedSteps();
-  console.log('--------------')
+  console.log('--------------steps seeded')
 
   await seedComments();
   console.log('--------------');
