@@ -1,6 +1,6 @@
 const { Steps } = require('../models');
 
-const stepData = [
+const dbStepsData = [
     {
         step: 'In a mixing bowl, combine the garlic, ginger, chili, honey, and soy sauce.',
         post_id: 1
@@ -15,6 +15,6 @@ const stepData = [
     }
 ];
 
-const seedSteps = () => Steps.bulkCreate(stepData);
+const seedSteps = () => Steps.bulkCreate(dbStepsData);
 
 module.exports = seedSteps;

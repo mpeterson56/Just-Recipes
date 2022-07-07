@@ -1,7 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Steps extends Model { }
+class Steps extends Model {}
 
 Steps.init(
     {
@@ -21,14 +21,14 @@ Steps.init(
             references: {
               model: 'post',
               key: 'id'
-            }
-          }
+            },
+          },
     },
     {
         sequelize,
         freezeTableName: true,
         underscored: true,
-        modelName: 'step'
+        modelName: 'Steps'
     }
 );
 

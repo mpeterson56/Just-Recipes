@@ -13,7 +13,7 @@ router.use('/users', userRoutes);
 router.use('/posts', postRoutes);
 router.use('/comments', commentRoutes);
 router.use('/ingredients', IngredientsRoutes);
-router.use('./step', StepsRoutes );
+router.use('./steps', StepsRoutes);
 
 
 // router.get('/spoon/:search', (req, res) => {
