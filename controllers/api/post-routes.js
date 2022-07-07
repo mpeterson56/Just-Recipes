@@ -81,6 +81,9 @@ router.get('/', (req, res) => {
     Post.create({
       title: req.body.title,
       post_text: req.body.post_text,
+      ingredient: req.body.ingredient,
+      measurement: req.body.measurement,
+      step: req.body.step,
       user_id: req.session.user_id
     })
       .then(PostData => res.json(PostData))
