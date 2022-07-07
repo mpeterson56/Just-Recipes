@@ -7,13 +7,13 @@ const { Steps } = require('../../models');
 
 
 router.get('/', (req, res) => {
-   Steps.findAll()
-      .then(stepData => res.json(stepData))
-      .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-      });
-  });
+  Steps.findAll()
+    .then(dbStepsData => res.json(dbStepsData))
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
 
 
 
@@ -23,7 +23,7 @@ router.get('/', (req, res) => {
      step: req.body.step,
       post_id: req.body.post_id
     })
-      .then(stepData => res.json(stepData))
+      .then(dbStepsData => res.json(dbStepsData))
       .catch(err => {
         console.log(err);
         res.status(400).json(err);

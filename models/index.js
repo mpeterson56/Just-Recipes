@@ -73,7 +73,7 @@ Post.hasMany(Ingredients, {
 
 Ingredients.belongsTo(Post, {
   foreignKey: 'post_id'
-})
+});
 
 Post.hasMany(Steps, {
   foreignKey: 'post_id'
@@ -81,7 +81,7 @@ Post.hasMany(Steps, {
 
 Steps.belongsTo(Post, {
   foreignKey: 'post_id'
-})
+});
 
 
-module.exports = { User, Post, Vote, Comment, Ingredients, Steps };
+module.exports = { User, Post, Vote, Comment, Ingredients, Steps};
