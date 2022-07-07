@@ -11,9 +11,13 @@ async function loginFormHandler(event) {
         email,
         password
       }),
+<<<<<<< HEAD
       headers: {
         'Content-Type': 'application/json'
       }
+=======
+      headers: { 'Content-Type': 'application/json' }
+>>>>>>> d04b892ab74693416c29f36dd7b13c060bec4b79
     });
 
     if (response.ok) {
@@ -39,9 +43,13 @@ async function signupFormHandler(event) {
         email,
         password
       }),
+<<<<<<< HEAD
       headers: {
         'Content-Type': 'application/json'
       }
+=======
+      headers: { 'Content-Type': 'application/json' }
+>>>>>>> d04b892ab74693416c29f36dd7b13c060bec4b79
     });
 
     if (response.ok) {
@@ -54,4 +62,8 @@ async function signupFormHandler(event) {
 
 document.querySelector('.login-form').addEventListener('submit', loginFormHandler);
 
+<<<<<<< HEAD
 document.querySelector('.signup-form').addEventListener('submit', signupFormHandler);
+=======
+document.querySelector('.signup-form').addEventListener('submit', signupFormHandler);
+>>>>>>> d04b892ab74693416c29f36dd7b13c060bec4b79
