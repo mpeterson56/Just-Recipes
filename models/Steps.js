@@ -28,7 +28,7 @@ Steps.init(
         sequelize,
         freezeTableName: true,
         underscored: true,
-        modelName: 'steps'
+        modelName: 'step'
     }
 );
 

@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const sequelize = require('../../config/connection');
-const { Post, User,Comment, Vote  } = require('../../models');
+const { Post, User,Comment, Vote, Ingredients, Steps  } = require('../../models');
 const passport = require('../../utils/auth');
 // get all users
 router.get('/', (req, res) => {
@@ -8,8 +8,8 @@ router.get('/', (req, res) => {
     Post.findAll({
       attributes: [
         'id',
-        'post_text',
         'title',
+        'post_text',
         'created_at',
         [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
       ],
@@ -25,6 +25,15 @@ router.get('/', (req, res) => {
         {
           model: User,
           attributes: ['username']
+        },
+        {
+model: Ingredients,
+attributes: ['ingredient', 'measurement']
+
+        },
+        {
+          model: Steps,
+          attributes: ['step']
         }
       ]
     })
@@ -42,8 +51,8 @@ router.get('/', (req, res) => {
       },
       attributes: [
         'id',
-        'post_text',
         'title',
+        'post_text',
         'created_at',
         [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
       ],
@@ -59,7 +68,16 @@ router.get('/', (req, res) => {
         {
           model: User,
           attributes: ['username']
-        }
+        },
+        {
+          model: Ingredients,
+          attributes: ['ingredient', 'measurement']
+          
+                  },
+                  {
+                    model: Steps,
+                    attributes: ['step']
+                  }
       ]
     })
       .then(PostData => {
@@ -81,6 +99,9 @@ router.get('/', (req, res) => {
     Post.create({
       title: req.body.title,
       post_text: req.body.post_text,
+      ingredients_id: req.body.ingredients_id,
+    
+      steps_id: req.body.steps_id,
       user_id: req.session.user_id
     })
       .then(PostData => res.json(PostData))
