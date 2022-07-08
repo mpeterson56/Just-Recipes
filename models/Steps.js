@@ -11,7 +11,7 @@ Steps.init(
             primaryKey: true,
             autoIncrement: true
         },
-        step: {
+        step_text: {
             type: DataTypes.STRING,
             allowNull: false
         },

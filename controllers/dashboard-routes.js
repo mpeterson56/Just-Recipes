@@ -22,15 +22,21 @@ router.get('/', (req, res) => {
       {
         model: Comment,
         attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
-        include: {
+       },
+        {
           model: User,
           attributes: ['username']
-        }
-      },
-      {
-        model: User,
-        attributes: ['username']
-      }
+        },
+      
+        {
+          model: Ingredients,
+          attributes: ['id','ingredient', 'measurement', 'post_id']
+          
+                  },
+                  {
+                    model: Steps,
+                    attributes: ['id','step_text', 'post_id']
+                  }
     ]
   })
     .then(dbPostData => {
@@ -64,7 +70,16 @@ router.get('/edit/:id', passport.authenticate('local'), (req, res) => {
       {
         model: User,
         attributes: ['username']
-      }
+      },
+      {
+        model: Ingredients,
+        attributes: ['id','ingredient', 'measurement', 'post_id']
+        
+                },
+                {
+                  model: Steps,
+                  attributes: ['id','step_text', 'post_id']
+                }
     ]
   })
     .then(dbPostData => {

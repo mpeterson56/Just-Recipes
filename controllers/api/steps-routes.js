@@ -20,7 +20,7 @@ router.get('/', (req, res) => {
   router.post('/', (req, res) => {
    Steps.create({
      steps_id: req.body.steps_id,
-     step: req.body.step,
+     step_text: req.body.step_text,
       post_id: req.body.post_id
     })
       .then(dbStepsData => res.json(dbStepsData))
