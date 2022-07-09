@@ -13,7 +13,7 @@ Steps.init(
         },
         step_text: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: true
         },
      
           post_id: {
@@ -28,7 +28,7 @@ Steps.init(
         sequelize,
         freezeTableName: true,
         underscored: true,
-        modelName: 'Steps'
+        modelName: 'steps'
     }
 );
 

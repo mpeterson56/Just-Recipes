@@ -8,13 +8,7 @@ async function editFormHandler(event) {
   const response = await fetch(`/api/posts/${id}`, {
     method: 'PUT',
     body: JSON.stringify({
-<<<<<<< HEAD
-      title,
-      ingredients,
-      steps
-=======
       title
->>>>>>> d04b892ab74693416c29f36dd7b13c060bec4b79
     }),
     headers: {
       'Content-Type': 'application/json'
@@ -28,8 +22,4 @@ async function editFormHandler(event) {
   }
 }
 
-<<<<<<< HEAD
 document.querySelector('.edit-post-form').addEventListener('submit', editFormHandler);
-=======
-document.querySelector('.edit-post-form').addEventListener('submit', editFormHandler);
->>>>>>> d04b892ab74693416c29f36dd7b13c060bec4b79

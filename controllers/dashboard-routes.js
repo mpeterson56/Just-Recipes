@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
-const { Post, User, Comment, Vote } = require('../models');
+const { Post, User, Comment, Vote, Ingredients, Steps } = require('../models');
 const passport = require('../utils/auth');
 
 // get all posts for dashboard
@@ -39,8 +39,8 @@ router.get('/', (req, res) => {
                   }
     ]
   })
-    .then(dbPostData => {
-      const posts = dbPostData.map(post => post.get({ plain: true }));
+    .then(PostData => {
+      const posts = PostData.map(post => post.get({ plain: true }));
       res.render('dashboard', { posts, loggedIn: true });
     })
     .catch(err => {
@@ -82,9 +82,9 @@ router.get('/edit/:id', passport.authenticate('local'), (req, res) => {
                 }
     ]
   })
-    .then(dbPostData => {
-      if (dbPostData) {
-        const post = dbPostData.get({ plain: true });
+    .then(PostData => {
+      if (PostData) {
+        const post = PostData.get({ plain: true });
         
         res.render('edit-post', {
           post,

@@ -10,6 +10,8 @@ router.get('/', (req, res) => {
         'id',
         'title',
         'post_text',
+        'ingredients_id',
+        'steps_id',
         'created_at',
         [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
       ],
@@ -28,12 +30,12 @@ router.get('/', (req, res) => {
         },
         {
 model: Ingredients,
-attributes: ['id','ingredient', 'measurement', 'post_id']
+attributes: ['id','ingredient', 'measurement']
 
         },
         {
           model: Steps,
-          attributes: ['id','step_text', 'post_id']
+          attributes: ['id','step_text']
         }
       ]
     })
@@ -53,6 +55,8 @@ attributes: ['id','ingredient', 'measurement', 'post_id']
         'id',
         'title',
         'post_text',
+        'ingredients_id',
+        'steps_id',
         'created_at',
         [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
       ],
@@ -71,12 +75,12 @@ attributes: ['id','ingredient', 'measurement', 'post_id']
         },
         {
           model: Ingredients,
-          attributes: ['id', 'ingredient', 'measurement', 'post_id']
+          attributes: ['id','ingredient', 'measurement']
           
                   },
                   {
                     model: Steps,
-                    attributes: ['id', 'step', 'post_id']
+                    attributes: ['id','step_text']
                   }
       ]
     })

@@ -13,11 +13,11 @@ Ingredients.init(
     },
     ingredient: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     measurement: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
 
     post_id: {
