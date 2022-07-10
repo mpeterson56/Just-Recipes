@@ -99,4 +99,8 @@ router.get('/edit/:id', passport.authenticate('local'), (req, res) => {
     });
 });
 
+router.get('/newpost', (req, res) => {
+  res.render('new-posts');
+});
+
 module.exports = router;

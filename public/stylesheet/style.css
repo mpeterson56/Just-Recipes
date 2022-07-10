@@ -41,9 +41,15 @@ body {
     font-weight: 600;
 }
 
+<<<<<<< HEAD
 #post-info{
     color:goldenrod;
     opacity: 0.75;
+=======
+
+.save-note {
+  display: none;
+>>>>>>> feature/handlebars
 }
 
 #upvotes{
@@ -126,3 +132,19 @@ label#recipe-title {
 #list-number {
     color: goldenrod;
 }
+<<<<<<< HEAD
+=======
+/* © 2022 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Docs
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About */
+>>>>>>> feature/handlebars

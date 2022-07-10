@@ -12,7 +12,13 @@ async function loginFormHandler(event) {
         email,
         password
       }),
+<<<<<<< HEAD
       headers: { 'Content-Type': 'application/json' }
+=======
+      headers: {
+        'Content-Type': 'application/json'
+      }
+>>>>>>> feature/handlebars
     });
 
     if (response.ok) {
@@ -38,7 +44,13 @@ async function signupFormHandler(event) {
         email,
         password
       }),
+<<<<<<< HEAD
       headers: { 'Content-Type': 'application/json' }
+=======
+      headers: {
+        'Content-Type': 'application/json'
+      }
+>>>>>>> feature/handlebars
     });
 
     if (response.ok) {
