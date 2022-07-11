@@ -67,10 +67,10 @@ Post.init(
         key: 'id'
       }
     },
-    steps_id: {
+    step_id: {
       type:DataTypes.INTEGER,
       references: {
-        model: 'Steps',
+        model: 'step',
         key: 'id'
       }
     }

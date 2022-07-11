@@ -2,9 +2,9 @@ async function newFormHandler(event) {
   event.preventDefault();
 
   const title = document.querySelector('input[name="recipe-title"]').value.trim();
-  const ingredient = document.querySelector('input[name="ingredient-title"]').value.trim();
-const measurement = document.querySelector('input[name="measurement-title"]').value.trim();
-const step_text = document.querySelector('input[name="step_text"]').value.trim();
+  const ingredient = document.querySelector('input[name="ingredient-title1"]').value.trim();
+const measurement = document.querySelector('input[name="measurement-title1"]').value.trim();
+const step_text = document.querySelector('input[name="step_text1"]').value.trim();
 
 
 
@@ -17,6 +17,8 @@ const step_text = document.querySelector('input[name="step_text"]').value.trim()
      measurement,
      step_text
     }),
+
+    
     headers: {
       'Content-Type': 'application/json'
     }
@@ -26,6 +28,7 @@ const step_text = document.querySelector('input[name="step_text"]').value.trim()
   
 
   if (response.ok ) {
+   
     document.location.replace('/dashboard');
   } else {
     alert(response.statusText);
