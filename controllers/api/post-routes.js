@@ -9,7 +9,6 @@ router.get('/', (req, res) => {
       attributes: [
         'id',
         'title',
-        'post_text',
         'ingredients_id',
         'steps_id',
         'created_at',
@@ -30,12 +29,12 @@ router.get('/', (req, res) => {
         },
         {
 model: Ingredients,
-attributes: ['id','ingredient', 'measurement', 'post_id']
+attributes: ['id','ingredient', 'measurement']
 
         },
         {
           model: Steps,
-          attributes: ['id','step_text', 'post_id']
+          attributes: ['id','step_text']
         }
       ]
     })
@@ -54,7 +53,6 @@ attributes: ['id','ingredient', 'measurement', 'post_id']
       attributes: [
         'id',
         'title',
-        'post_text',
         'ingredients_id',
         'steps_id',
         'created_at',
@@ -75,12 +73,12 @@ attributes: ['id','ingredient', 'measurement', 'post_id']
         },
         {
           model: Ingredients,
-          attributes: ['id','ingredient', 'measurement', 'post_id']
+          attributes: ['id','ingredient', 'measurement']
           
                   },
                   {
                     model: Steps,
-                    attributes: ['id','step_text', 'post_id']
+                    attributes: ['id','step_text', ]
                   }
       ]
     })
@@ -102,10 +100,6 @@ attributes: ['id','ingredient', 'measurement', 'post_id']
   
     Post.create({
       title: req.body.title,
-      post_text: req.body.post_text,
-      ingredients_id: req.body.ingredients_id,
-    
-      steps_id: req.body.steps_id,
       user_id: req.session.user_id
     })
       .then(PostData => res.json(PostData))

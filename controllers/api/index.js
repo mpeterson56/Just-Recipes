@@ -1,8 +1,8 @@
 const router = require('express').Router();
 const axios = require('axios').default;
 
-const userRoutes = require('./user-routes.js');
-const postRoutes = require('./post-routes.js');
+const userRoutes = require('./user-routes');
+const postRoutes = require('./post-routes');
 const commentRoutes = require('./comment-routes');
 const IngredientsRoutes = require('./ingredients-routes');
 const StepsRoutes = require('./steps-routes');
