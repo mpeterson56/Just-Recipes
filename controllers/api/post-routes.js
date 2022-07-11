@@ -30,12 +30,12 @@ router.get('/', (req, res) => {
         },
         {
 model: Ingredients,
-attributes: ['id','ingredient', 'measurement']
+attributes: ['id','ingredient', 'measurement', 'post_id']
 
         },
         {
           model: Steps,
-          attributes: ['id','step_text']
+          attributes: ['id','step_text', 'post_id']
         }
       ]
     })
@@ -75,12 +75,12 @@ attributes: ['id','ingredient', 'measurement']
         },
         {
           model: Ingredients,
-          attributes: ['id','ingredient', 'measurement']
+          attributes: ['id','ingredient', 'measurement', 'post_id']
           
                   },
                   {
                     model: Steps,
-                    attributes: ['id','step_text']
+                    attributes: ['id','step_text', 'post_id']
                   }
       ]
     })
