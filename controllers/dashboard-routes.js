@@ -5,6 +5,10 @@ const passport = require('../utils/auth');
 
 // get all posts for dashboard
 router.get('/', (req, res) => {
+  req.session.reload(function(){
+
+
+  
   console.log(req.session);
   console.log('======================');
   Post.findAll({
@@ -46,7 +50,7 @@ router.get('/', (req, res) => {
     .catch(err => {
       console.log(err);
       res.status(500).json(err);
-    });
+    });});
 });
 
 router.get('/edit/:id', passport.authenticate('local'), (req, res) => {

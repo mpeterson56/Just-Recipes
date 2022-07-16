@@ -35,17 +35,19 @@ console.log(response2.statusText);
     }
   });
   console.log(response3.statusText);
+ 
   const response = await fetch(`/api/posts`, {
     
     method: 'POST',
     body: JSON.stringify({
       title,
+    
     }),
     headers: {
       'Content-Type': 'application/json'
     }
   });
-  
+  console.log(response.statusText);
 
   if (response.ok && response2.ok && response3.ok ) {
     document.location.replace('/dashboard');

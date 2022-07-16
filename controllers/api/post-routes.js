@@ -9,8 +9,7 @@ router.get('/', (req, res) => {
       attributes: [
         'id',
         'title',
-        'ingredients_id',
-        'steps_id',
+      
         'created_at',
         [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
       ],
@@ -20,12 +19,12 @@ router.get('/', (req, res) => {
           attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
           include: {
             model: User,
-            attributes: ['username']
+            attributes: ['id','username']
           }
         },
         {
           model: User,
-          attributes: ['username']
+          attributes: ['id','username']
         },
         {
 model: Ingredients,
@@ -53,8 +52,7 @@ attributes: ['id','ingredient', 'measurement']
       attributes: [
         'id',
         'title',
-        'ingredients_id',
-        'steps_id',
+       
         'created_at',
         [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
       ],
@@ -64,12 +62,12 @@ attributes: ['id','ingredient', 'measurement']
           attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
           include: {
             model: User,
-            attributes: ['username']
+            attributes: ['id','username']
           }
         },
         {
           model: User,
-          attributes: ['username']
+          attributes: ['id','username']
         },
         {
           model: Ingredients,
@@ -96,13 +94,14 @@ attributes: ['id','ingredient', 'measurement']
   });
 
 
-  router.post('/', passport.authenticate('local'), (req, res) => {
+  router.post('/', (req, res) => {
   
     Post.create({
       title: req.body.title,
-      user_id: req.session.user_id
+  user_id: req.session.user_id,
+
     })
-      .then(PostData => res.json(PostData))
+      .then(postData => res.json(postData))
       .catch(err => {
         console.log(err);
         res.status(500).json(err);
