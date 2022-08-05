@@ -1,4 +1,5 @@
 # Just Recipes
+![JustRecipes](https://user-images.githubusercontent.com/100823810/182999138-b195d88f-424f-42fd-9f48-d63d94f0072b.jpg)
 
   ## Description
   This is a collaborative project built on the inspiration to give users an easier and faster way to search for a recipe without having to scroll through pages of stories about a recipe before getting to the actual recipe process. This site also allows users to like and comment on other recipes and also allows users to add their recipes when they have signed up.
